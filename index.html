@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,14 @@
             color: #fff;
             padding: 20px 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            display: flex;
+            align-items: center; /* Aligner verticalement */
+            justify-content: flex-start; /* Alignement à gauche */
+            min-height: 140px;
+        }
+        .header-content {
+            margin-left: 20px; /* Espacement entre la photo et le texte */
+            max-width: calc(100% - 140px); /* Ajuster pour laisser place à la photo */
         }
         .header h1 {
             font-size: 28px;
@@ -30,6 +37,16 @@
             font-size: 14px;
             margin: 5px 0 0;
             opacity: 0.9;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Rendre l'image circulaire */
+            object-fit: cover; /* Assure que l'image remplit le cercle */
+            border: 3px solid #FFD700; /* Bordure dorée */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: #000; /* Fond noir pour les espaces transparents */
+            margin: 0; /* Supprimer les marges par défaut */
         }
         .container {
             display: flex;
@@ -74,7 +91,7 @@
             text-align: left;
         }
         ul li:before {
-            content: '\f058'; /* Ícone de check */
+            content: '\f058'; /* Icône coche */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: #1E3A8A;
@@ -127,86 +144,100 @@
             .sidebar {
                 border-bottom: 1px solid #e0e4e8;
             }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-pic {
+                margin-bottom: 10px;
+            }
+            .header-content {
+                margin-left: 0;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Rodrigues Delmar</h1>
-        <p>Técnico de Manutenção Experiente</p>
-        <p>roro68@live.fr | 00 33 6 89 67 93 25 | 13 rua D. João do Castro, 2860-072 Alhos Vedros</p>
+        <img src="https://via.placeholder.com/120" alt="Photo de Rodrigues Delmar" class="profile-pic" onerror="this.src='https://via.placeholder.com/120';">
+        <div class="header-content">
+            <h1>Rodrigues Delmar</h1>
+            <p>Technicien Maintenance Expérimenté</p>
+            <p>roro68@live.fr | 06 89 67 93 25 | 14 Allée du Général Abbatucci, 68600 Volgelsheim</p>
+        </div>
     </div>
 
     <div class="container">
         <div class="sidebar">
-            <h2>Competências</h2>
+            <h2>Compétences</h2>
             <ul>
-                <li><i class="fas fa-users"></i> Liderança e gestão de técnicos</li>
-                <li><i class="fas fa-laptop"></i> Uso diário de GMAO e ERP</li>
-                <li><i class="fas fa-tools"></i> Resolução de problemas e segurança</li>
-                <li><i class="fas fa-cogs"></i> Diagnóstico de falhas</li>
-                <li><i class="fas fa-book-open"></i> Leitura de esquemas elétricos</li>
-                <li><i class="fas fa-boxes"></i> Gestão de estoques</li>
-                <li><i class="fas fa-microchip"></i> Eletrônica e automação</li>
+                <li><i class="fas fa-users"></i> Leadership et gestion des techniciens</li>
+                <li><i class="fas fa-laptop"></i> Utilisation GMAO et ERP</li>
+                <li><i class="fas fa-tools"></i> Résolution de problèmes et sécurité</li>
+                <li><i class="fas fa-cogs"></i> Diagnostic de pannes</li>
+                <li><i class="fas fa-book-open"></i> Lecture de plans électriques</li>
+                <li><i class="fas fa-boxes"></i> Gestion des stocks</li>
+                <li><i class="fas fa-microchip"></i> Électronique et automatisation</li>
             </ul>
-            <h2>Idiomas</h2>
+            <h2>Langues</h2>
             <ul>
-                <li>Alemão: Nível B2</li>
-                <li>Inglês: Nível B1</li>
+                <li>Allemand : Niveau B2</li>
+                <li>Anglais : Niveau B1</li>
             </ul>
-            <h2>Softwares</h2>
+            <h2>Logiciels</h2>
             <ul>
                 <li>Kimoce, Eurecia, Isat</li>
                 <li>Word, Excel, PowerPoint</li>
-                <li>Metrologia 3D</li>
+                <li>Métrologie 3D</li>
             </ul>
-            <h2>Interesses</h2>
+            <h2>Centres d’Intérêt</h2>
             <ul>
-                <li><i class="fas fa-laptop-code"></i> Avanços tecnológicos em manutenção</li>
-                <li><i class="fas fa-running"></i> Esportes em equipe (Crossfit)</li>
-                <li><i class="fas fa-book"></i> Leitura</li>
+                <li><i class="fas fa-laptop-code"></i> Avancées technologiques en maintenance</li>
+                <li><i class="fas fa-running"></i> Sports d’équipe (Crossfit)</li>
+                <li><i class="fas fa-book"></i> Lecture</li>
             </ul>
         </div>
 
         <div class="main">
-            <h2>Perfil</h2>
+            <h2>Profil</h2>
             <div class="executive-summary">
-                <p>Técnico de manutenção altamente qualificado com 16 anos de experiência em manutenção preventiva, corretiva e preditiva. Expertise em gestão de equipes, diagnóstico de falhas e otimização de processos industriais. Apaixonado por resolver problemas técnicos, comprometo-me a garantir o funcionamento adequado dos equipamentos, minimizando os tempos de inatividade, com foco em segurança, qualidade e produtividade.</p>
+                <p>Technicien de maintenance hautement qualifié avec 16 ans d’expérience dans la maintenance préventive, corrective et prédictive. Expertise en gestion d’équipe, diagnostic de pannes, et optimisation des processus industriels. Passionné par la résolution de problèmes techniques, je m’engage à garantir le bon fonctionnement des équipements tout en minimisant les temps d’arrêt, avec un focus sur la sécurité, la qualité et la productivité.</p>
             </div>
 
-            <h2>Experiência Profissional</h2>
-            <p><strong>Referente Técnico – Istobal (Lavagem de Automóveis, Petróleo e Gás)</strong> <em>2017 – 04/2025</em></p>
+            <h2>Expérience Professionnelle</h2>
+            <p><strong>Référent Technique – Istobal (Lavage Auto, Pétrole et Gaz)</strong> <em>2023 – 04/2024</em></p>
             <ul>
-                <li>Gestão de uma equipe de 5 técnicos e do orçamento de manutenção.</li>
-                <li>Prospecção de clientes e validação de contratos de manutenção (PPJ, PT).</li>
-                <li>Respeito dos protocolos Total e Shell, intervenções em zonas ATEX e TGBT, consignações elétricas.</li>
-                <li>Análise de riscos e gestão de intervenções críticas.</li>
+                <li>Gestion d’une équipe de 5 techniciens et du budget de maintenance.</li>
+                <li>Prospection clients et validation des contrats de maintenance (PPJ, PT).</li>
+                <li>Respect des protocoles Total et Shell, interventions en zones ATEX et TGBT, consignations électriques.</li>
+                <li>Analyse de risques et gestion des interventions critiques.</li>
             </ul>
-            <p><strong>Chefe de Equipe de Manutenção – Advaltech e Nemera (Farma e Metalurgia)</strong> <em>2013 – 2017</em></p>
+            <p><strong>Chef d’Équipe Maintenance – Advaltech et Nemera (Pharma et Métallurgie)</strong> <em>2013 – 2023</em></p>
             <ul>
-                <li>Inspeções e manutenção níveis 2 e 3, gestão de uma equipe de 3 técnicos.</li>
-                <li>Acompanhamento de KPI, otimização de processos, auditorias ISO9001, aplicação da regra dos 3S.</li>
-                <li>Gestão de fornecedores, documentação, relatórios e treinamentos.</li>
-                <li>Avaliação de criticidade e melhoria contínua.</li>
+                <li>Inspections et maintenance niveau 2 et 3, gestion d’une équipe de 3 techniciens.</li>
+                <li>Suivi des KPI, optimisation des processus, audits ISO9001, application de la règle des 3S.</li>
+                <li>Gestion des fournisseurs, documentation, reporting, et formations.</li>
+                <li>Évaluation de criticité et amélioration continue.</li>
             </ul>
-            <p><strong>Técnico de Manutenção – CEME (Impressão de Fotos e Calendários)</strong> <em>2008 – 2013</em></p>
+            <p><strong>Technicien de Maintenance – CEME (Impression Photos et Calendriers)</strong> <em>2008 – 2013</em></p>
             <ul>
-                <li>Manutenção corretiva e preventiva, diagnóstico de falhas, programação de robôs.</li>
-                <li>Monitoramento, acompanhamento e relatórios sobre equipamentos.</li>
-                <li>Melhoria contínua e controle de qualidade.</li>
-                <li>Gestão de emergências e substituição de peças.</li>
+                <li>Maintenance corrective et préventive, diagnostic de pannes, programmation de robots.</li>
+                <li>Surveillance, suivi, et rapports sur les équipements.</li>
+                <li>Amélioration continue et contrôle qualité.</li>
+                <li>Gestion des urgences et remplacement de pièces.</li>
             </ul>
 
-            <h2>Formação</h2>
-            <p><strong>Profissionalização em Alemão Técnico</strong> <em>Universidade de Freiburg, 2013-2014</em></p>
-            <p><strong>BTS Supervisor</strong> <em>Afpa, Nice, 2006-2007</em></p>
-            <p><strong>BAC Bilíngue (Francês-Alemão)</strong> <em>IUT de Colmar, 2005-2006</em></p>
-            <p><strong>B.E.P Manutenção Industrial</strong> <em>Greta Pulversheim, 2002-2003</em></p>
+            <h2>Formation</h2>
+            <p><strong>Professionnalisation Allemand Technique</strong> <em>Université de Freiburg, 2013-2014</em></p>
+            <p><strong>BTS Superviseur</strong> <em>Afpa, Nice, 2006-2007</em></p>
+            <p><strong>BAC Bilingue (Français-Allemand)</strong> <em>IUT de Colmar, 2005-2006</em></p>
+            <p><strong>B.E.P Maintenance Industrielle</strong> <em>Greta Pulversheim, 2002-2003</em></p>
         </div>
     </div>
 
     <div class="footer">
-        <p>Link LinkedIn: <a href="https://www.linkedin.com/in/delmar-rodrigues-">delmar-rodrigues</a> | Última atualização: <span>17 de março de 2025</span></p>
+        <p>Lien LinkedIn : <a href="https://www.linkedin.com/in/delmar-rodrigues-">delmar-rodrigues</a> | Dernière mise à jour : <span>17 mars 2025</span></p>
     </div>
 </body>
 </html>
