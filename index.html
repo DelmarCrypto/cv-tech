@@ -6,6 +6,7 @@
     <title>CV - Rodrigues Delmar</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             margin: 0;
@@ -17,17 +18,16 @@
         .header {
             background: linear-gradient(135deg, #1E3A8A, #2A4BA6);
             color: #fff;
-            padding: 20px 30px;
+            padding: 15px 30px; /* Réduit le padding pour un look plus symétrique */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center; /* Centrer verticalement */
-            justify-content: flex-start; /* Alignement à gauche avec photo */
-            min-height: 140px;
+            justify-content: center; /* Centrer horizontalement */
+            min-height: 140px; /* Hauteur minimale pour le centrage */
+            text-align: center; /* Centrer le texte */
         }
         .header-content {
-            margin-left: 20px; /* Espacement entre la photo et le texte */
-            max-width: calc(100% - 140px); /* Ajuster pour laisser place à la photo */
-            text-align: center; /* Centrer le texte horizontalement */
+            max-width: 100%; /* S'assurer que le texte peut prendre toute la largeur */
         }
         .header h1 {
             font-size: 28px;
@@ -42,11 +42,13 @@
         .profile-pic {
             width: 120px;
             height: 120px;
-            object-fit: cover; /* Assure que l'image remplit l'espace */
-            border: 3px solid #FFD700; /* Bordure dorée sans cercle */
+            border-radius: 50%; /* Rendre l'image circulaire */
+            object-fit: contain; /* Afficher l'image entière sans recadrage */
+            border: 3px solid #FFD700; /* Bordure dorée */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            background-color: #000; /* Fond noir pour les espaces transparents */
-            margin: 0; /* Supprimer les marges par défaut */
+            background-color: #000; /* Fond noir pour combler les espaces transparents */
+            margin: 30px auto 20px auto; /* Plus d'espace au-dessus et en dessous */
+            display: block; /* S'assurer que l'image est un bloc pour le centrage */
         }
         .container {
             display: flex;
@@ -62,7 +64,7 @@
             width: 35%;
             padding: 30px;
             border-right: 1px solid #e0e4e8;
-            text-align: center;
+            text-align: center; /* Centrer les éléments dans la sidebar */
         }
         .main {
             width: 65%;
@@ -80,6 +82,19 @@
         .sidebar h2 {
             font-size: 18px;
         }
+        .portfolio-value {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        .highlight {
+            background: #1E3A8A;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
         ul {
             list-style: none;
             padding: 0;
@@ -88,7 +103,7 @@
             margin: 15px 0;
             position: relative;
             padding-left: 25px;
-            text-align: left;
+            text-align: left; /* Aligner les listes à gauche pour la lisibilité */
         }
         ul li:before {
             content: '\f058'; /* Icône coche */
@@ -106,6 +121,16 @@
             margin: 15px 0;
             border-radius: 5px;
         }
+        .investor-proposal {
+            background: linear-gradient(135deg, #1E3A8A, #2A4BA6);
+            color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            text-align: center;
+        }
         .footer {
             text-align: center;
             color: #666;
@@ -115,9 +140,14 @@
             border-top: 1px solid #e0e4e8;
         }
         .footer span {
-            font-style: normal;
+            font-style: normal; /* Pas d'italique */
             color: #1E3A8A;
             font-weight: 600;
+        }
+        .chart-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
         }
         a {
             color: #FFD700;
@@ -125,7 +155,7 @@
             transition: color 0.3s;
         }
         a:hover {
-            color: #1E3A8A;
+            color: #fff;
         }
         .sidebar p:hover, .main p:hover {
             background: #e0e4e8;
@@ -133,6 +163,11 @@
             padding: 5px;
             transition: background 0.3s;
         }
+        hr {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        /* Responsivité pour petits écrans */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -144,23 +179,11 @@
             .sidebar {
                 border-bottom: 1px solid #e0e4e8;
             }
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .profile-pic {
-                margin-bottom: 10px;
-            }
-            .header-content {
-                margin-left: 0;
-                max-width: 100%;
-            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="https://via.placeholder.com/120" alt="Photo de Rodrigues Delmar" class="profile-pic" onerror="this.src='https://via.placeholder.com/120';">
         <div class="header-content">
             <h1>Rodrigues Delmar</h1>
             <p>Technicien Maintenance Expérimenté</p>
@@ -170,6 +193,8 @@
 
     <div class="container">
         <div class="sidebar">
+            <img src="https://via.placeholder.com/120" alt="Photo de Rodrigues Delmar" class="profile-pic" onerror="this.src='https://via.placeholder.com/120';">
+            <hr>
             <h2>Compétences</h2>
             <ul>
                 <li><i class="fas fa-users"></i> Leadership et gestion des techniciens</li>
@@ -239,5 +264,44 @@
     <div class="footer">
         <p>Lien LinkedIn : <a href="https://www.linkedin.com/in/delmar-rodrigues-">delmar-rodrigues</a> | Dernière mise à jour : <span>17 mars 2025</span></p>
     </div>
+
+    <script>
+        function formatNumber(number, decimals = 2) {
+            const fixed = number.toFixed(decimals);
+            const [integer, decimal] = fixed.split('.');
+            const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            return decimal ? `${formattedInteger},${decimal}` : formattedInteger;
+        }
+
+        // Valeur statique
+        const netWorth = 2056833;
+        document.querySelectorAll('.portfolio-value').forEach(el => {
+            el.textContent = `€${formatNumber(netWorth, 0)}`;
+        });
+
+        // Graphique simple pour le rendement
+        const ctx = document.getElementById('yieldChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2017', '2025'],
+                datasets: [{
+                    label: 'Valeur du portefeuille (€)',
+                    data: [30000, 2056833],
+                    borderColor: '#FFD700',
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true },
+                    x: { ticks: { color: '#1E3A8A' } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
 </body>
 </html>
