@@ -20,13 +20,14 @@
             padding: 20px 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
-            align-items: center; /* Aligner verticalement */
-            justify-content: flex-start; /* Alignement à gauche */
+            align-items: center; /* Centrer verticalement */
+            justify-content: flex-start; /* Alignement à gauche avec photo */
             min-height: 140px;
         }
         .header-content {
             margin-left: 20px; /* Espacement entre la photo et le texte */
             max-width: calc(100% - 140px); /* Ajuster pour laisser place à la photo */
+            text-align: center; /* Centrer le texte horizontalement */
         }
         .header h1 {
             font-size: 28px;
@@ -41,9 +42,8 @@
         .profile-pic {
             width: 120px;
             height: 120px;
-            border-radius: 50%; /* Rendre l'image circulaire */
-            object-fit: cover; /* Assure que l'image remplit le cercle */
-            border: 3px solid #FFD700; /* Bordure dorée */
+            object-fit: cover; /* Assure que l'image remplit l'espace */
+            border: 3px solid #FFD700; /* Bordure dorée sans cercle */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             background-color: #000; /* Fond noir pour les espaces transparents */
             margin: 0; /* Supprimer les marges par défaut */
